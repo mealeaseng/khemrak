@@ -1,0 +1,66 @@
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-20">
+  <table class="w-full text-left text-gray-500 dark:text-gray-400 text-2xl">
+    <thead
+      class="text-2xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="px-6 py-3">No.</th>
+        <th scope="col" class="px-6 py-3">Image</th>
+        <th scope="col" class="px-6 py-3">Product</th>
+        <th scope="col" class="px-6 py-3">Price</th>
+        <th scope="col" class="px-6 py-3">Quantity</th>
+        <th scope="col" class="px-6 py-3">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of allProduct; track product) {
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+          {{ allProduct.indexOf(product) + 1 }}
+        </td>
+        <td class="px-6 py-4">
+          <img
+            [src]="product.images"
+            class="w-28 rounded object-cover"
+            alt="product"
+          />
+        </td>
+        <td class="px-6 py-4">{{ product.title }}</td>
+
+        <td class="px-6 py-4">
+          <!-- <span class="text-sm text-gray-900 font-bold mr-2">
+            ${{ product.price }}
+          </span> -->
+          <span class="text-lg font-bold text-green-600">
+            ${{ (product.price * (1 - (product.discountPercentage || 0) / 100)).toFixed(2) }}
+          </span>
+        </td>
+
+        <!-- QTY -->
+        <td class="px-19 py-4">{{ product.addcart }}</td>
+        <td class="px-6 py-4 text-green-600 font-semibold">
+          ${{ product.price * product.addcart}}
+        </td>
+      </tr>
+
+
+
+      }
+          <tr class="bg-gray-100 border-t-2">
+            <td colspan="5" class="text-right px-6 py-4 font-bold text-xl text-gray-800">Grand Total:</td>
+            <td class="px-6 py-4 text-green-700 font-bold text-xl">
+              ${{ totalAllProduct.toFixed(2) }}
+          </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="flex justify-end mt-6">
+  <button
+    (click)="payNow()"
+    class="bg-green-600 mr-39 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition duration-300 ease-in-out"
+  >
+    Pay Now
+  </button>
+</div>
+

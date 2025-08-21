@@ -1,0 +1,71 @@
+<!-- homepgae.html -->
+<div class="mt-20">
+  <!-- Carousel -->
+  <div class="relative w-full max-sm:h-full max-md:h-[600px] p-1 overflow-hidden">
+    <div class="flex transition-transform duration-700 ease-in-out"
+         [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      @for (image of images; track image) {
+        <img [src]="image" class="w-full h-[700px] object-cover max-sm:h-[300px] flex-shrink-0" />
+      }
+    </div>
+  </div>
+
+  <!-- Welcome Text -->
+  <div class="font-bold px-6 mt-6">
+    <h2 class="text-3xl font-bold">Welcome to <span class="text-blue-600 text-4xl">Mrak Shop</span></h2>
+    <p class="text-gray-700">
+      Your all-in-one destination for everything you need—from electronics and fashion to home essentials, beauty products, and much more.
+      We’re committed to offering a wide selection of high-quality items at competitive prices, so you can enjoy convenient, affordable shopping every day.
+      Whether you’re updating your wardrobe or upgrading your tech, we’ve got you covered.
+    </p>
+  </div>
+</div>
+
+<!-- Main Product Heading -->
+<h2 class="text-4xl font-extrabold max-sm:text-2xl my-10 bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent underline decoration-blue-400 text-center">
+  Main Product
+</h2>
+
+<!-- Product Grid -->
+  <div
+    class="w-auto flex md:flex-wrap md:p-5 md:m-8 md:justify-center max-sm:justify-start overflow-x-scroll md:gap-12 max-sm:gap-1"
+  >
+  @for (product of products; track product) {
+    <div
+      class="w-[300px] flex-shrink-0 max-sm:w-[300px]"
+    >      <app-cart 
+        [product]="product"
+        (AddToCart)="Addproduct($event)">
+      </app-cart>
+    </div>
+  }
+</div>
+
+<!-- Cart Summary -->
+  <div class="mt-10 px-6">
+    <div class="bg-white border rounded-2xl shadow-lg p-6 max-w-xl mx-auto text-center space-y-4">
+      <h3 class="text-2xl font-bold text-gray-800">🛒 Cart Summary</h3>
+  <p class="text-lg text-gray-600">
+    You have <span class="font-semibold text-blue-600 text-2xl">{{ itemCount }}</span> item(s) in your cart.
+  </p>
+
+
+  <div>
+    <button
+      routerLink="/total"
+      [ngClass]="{ 'opacity-50 cursor-not-allowed': itemCount === 0 }"
+      class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-full text-lg font-medium transition">
+      Total
+    </button>
+  </div>
+
+
+    <div>
+      <button 
+        (click)="ClearCart()"
+        class="w-full bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-full text-lg font-medium transition">
+        Clear Cart
+      </button>
+    </div>
+  </div>
+</div>

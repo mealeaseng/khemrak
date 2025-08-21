@@ -1,0 +1,138 @@
+<nav class="bg-white shadow-md fixed w-full z-20 top-0 left-0 border-b border-gray-200 ">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <!-- Logo -->
+    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="https://cdn-icons-png.flaticon.com/512/3081/3081937.png" class="h-8" alt="Logo">
+      <span class="self-center text-2xl font-semibold whitespace-nowrap text-blue-800">Mark Shop</span>
+    </a>
+
+    <!-- Action Buttons -->
+    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+
+      <!-- Hamburger Toggle -->
+      <button (click)="isMenuOpen = !isMenuOpen" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-blue-800 rounded-lg md:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-200"
+        aria-controls="navbar-sticky" [attr.aria-expanded]="isMenuOpen">
+        <span class="sr-only">Open Main Menu</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Nav Menu -->
+    <div
+      [ngClass]="{ 'hidden': !isMenuOpen, 'block': isMenuOpen }"
+      class="items-center justify-between w-full md:flex md:w-auto md:order-1"
+      id="navbar-sticky"
+    >
+      <ul
+        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white"
+      >
+        <li>
+          <a href="#" routerLink="/" (click)="closeMenu()" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-800 md:p-0"
+            aria-current="page">Home</a>
+        </li>
+
+        <li>
+          <a href="#" routerLink="/about"
+          (click)="closeMenu()"
+            class="block py-2 px-3 text-blue-800 rounded hover:bg-blue-100 md:hover:bg-transparent md:hover:text-blue-800 md:p-0">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="#" routerLink="/service"
+          (click)="closeMenu()"
+            class="block py-2 px-3 text-blue-800 rounded hover:bg-blue-100 md:hover:bg-transparent md:hover:text-blue-800 md:p-0">
+            Services
+          </a>
+        </li>
+
+        <li>
+          <a href="#" routerLink="/contact"
+          (click)="closeMenu()"
+            class="block py-2 px-3 text-blue-800 rounded hover:bg-blue-100 md:hover:bg-transparent md:hover:text-blue-800 md:p-0">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- rote -->
+
+<router-outlet></router-outlet>
+
+<!-- footer -->
+ <footer class="bg-gray-700 shadow-inner mt-12 text-center">
+  <div class="max-w-screen-xl mx-auto px-4 py-10 md:py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-gray-100">
+
+      <!-- Company -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-blue-500">Company</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-blue-700">About</a></li>
+          <li><a href="#" class="hover:text-blue-700">Careers</a></li>
+          <li><a href="#" class="hover:text-blue-700">Brand Center</a></li>
+          <li><a href="#" class="hover:text-blue-700">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Help Center -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-blue-500">Help Center</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-blue-700">Discord Server</a></li>
+          <li><a href="#" class="hover:text-blue-700">Twitter</a></li>
+          <li><a href="#" class="hover:text-blue-700">Facebook</a></li>
+          <li><a href="#" class="hover:text-blue-700">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-blue-500">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-blue-700">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-blue-700">Licensing</a></li>
+          <li><a href="#" class="hover:text-blue-700">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Download -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-blue-500">Download</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-blue-700">iOS</a></li>
+          <li><a href="#" class="hover:text-blue-700">Android</a></li>
+          <li><a href="#" class="hover:text-blue-700">Windows</a></li>
+          <li><a href="#" class="hover:text-blue-700">MacOS</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <hr class="my-8 border-gray-200">
+
+    <div class="flex flex-col md:flex-row items-center justify-between text-gray-500 text-sm">
+      <p>© 2025 <a href="/" class="text-blue-500 hover:underline">Flowbite™</a>. All rights reserved.</p>
+
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <!-- Social icons with hover effect -->
+        <a href="#" aria-label="Facebook" class="text-blue-400 hover:text-blue-900">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-3v-3h3v-2c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 1-2 2v2h3.4l-.5 3h-2.9v7A10 10 0 0 0 22 12z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" class="text-blue-500 hover:text-blue-900">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3 1 4.48 4.48 0 0 0-7.7 4.1A12.66 12.66 0 0 1 3 4s-4 9 5 13a13 13 0 0 1-8 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </a>
+        <a href="#" aria-label="GitHub" class="text-blue-500 hover:text-blue-900">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5A12 12 0 0 0 0 12.5a12 12 0 0 0 8 11.3c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6a3.1 3.1 0 0 0-1.3-1.7c-1-.7.1-.7.1-.7a2.5 2.5 0 0 1 1.8 1.2 2.6 2.6 0 0 0 3.6 1 2.6 2.6 0 0 1 .8-1.6c-2.7-.3-5.5-1.3-5.5-6a4.6 4.6 0 0 1 1.2-3.2 4.2 4.2 0 0 1 .1-3.1s1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2a4.2 4.2 0 0 1 .1 3.1 4.6 4.6 0 0 1 1.2 3.2c0 4.7-2.8 5.6-5.5 6a3 3 0 0 1 .8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 24 12.5 12 12 0 0 0 12 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
